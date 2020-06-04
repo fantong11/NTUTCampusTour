@@ -34,9 +34,17 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    double[] latitudeAndLongitude = new double[2];
                     Toast.makeText(view.getContext(),
                             mBuildings[getAdapterPosition()] +getAdapterPosition(),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(mContext, MapsActivityCurrentPlace.class);
+                    switch (getAdapterPosition()) {
+                        case 0:
+                            latitudeAndLongitude[0] = 25.043416;
+                            latitudeAndLongitude[1] = 121.533834;
+                            break;
+                    }
+                    intent.putExtra("EXTRA", latitudeAndLongitude);
                     mContext.startActivity(intent);
                 }
             });

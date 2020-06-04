@@ -15,6 +15,7 @@
 package com.example.currentplacedetailsonmap;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -95,6 +96,7 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
 
+    private double[] latitudeAndLongitude;
     // [START maps_current_place_on_create]
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,8 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
 
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_maps);
+        Intent intent = getIntent();
+        latitudeAndLongitude = intent.getDoubleArrayExtra("EXTRA");
 
         // [START_EXCLUDE silent]
         // Construct a PlacesClient
@@ -218,10 +222,10 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        map.addMarker(new MarkerOptions().position(sydney)
+        LatLng schoolBuilding = new LatLng(latitudeAndLongitude[0], latitudeAndLongitude[1]);
+        map.addMarker(new MarkerOptions().position(schoolBuilding)
                 .title("Marker in Sydney"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        map.moveCamera(CameraUpdateFactory.newLatLng(schoolBuilding));
     }
     // [END maps_current_place_on_map_ready]
 
