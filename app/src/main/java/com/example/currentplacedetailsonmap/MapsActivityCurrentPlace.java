@@ -115,7 +115,7 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
 
         // [START_EXCLUDE silent]
         // Construct a PlacesClient
-        Places.initialize(getApplicationContext(), getString(R.string.google_maps_key));
+        Places.initialize(getApplicationContext(), getString(R.string.google_map_api_Key));
         placesClient = Places.createClient(this);
 
         // Construct a FusedLocationProviderClient.
@@ -218,6 +218,10 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
 
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
+        LatLng sydney = new LatLng(-33.852, 151.211);
+        map.addMarker(new MarkerOptions().position(sydney)
+                .title("Marker in Sydney"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
     // [END maps_current_place_on_map_ready]
 
