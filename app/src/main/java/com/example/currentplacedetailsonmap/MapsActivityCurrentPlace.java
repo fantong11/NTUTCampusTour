@@ -95,6 +95,7 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
     private String[] likelyPlaceAddresses;
     private List[] likelyPlaceAttributions;
     private LatLng[] likelyPlaceLatLngs;
+    private String mTitle;
 
     private double[] latitudeAndLongitude;
     // [START maps_current_place_on_create]
@@ -115,6 +116,7 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_maps);
         Intent intent = getIntent();
+        mTitle = intent.getStringExtra("NAME");
         latitudeAndLongitude = intent.getDoubleArrayExtra("EXTRA");
 
         // [START_EXCLUDE silent]
@@ -224,7 +226,7 @@ public class MapsActivityCurrentPlace extends AppCompatActivity
         getDeviceLocation();
         LatLng schoolBuilding = new LatLng(latitudeAndLongitude[0], latitudeAndLongitude[1]);
         map.addMarker(new MarkerOptions().position(schoolBuilding)
-                .title("Marker in Sydney"));
+                .title(mTitle));
         map.moveCamera(CameraUpdateFactory.newLatLng(schoolBuilding));
     }
     // [END maps_current_place_on_map_ready]

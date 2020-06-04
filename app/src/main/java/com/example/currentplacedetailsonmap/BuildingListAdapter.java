@@ -156,6 +156,7 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
                             latitudeAndLongitude[1] = 121.538239;
                             break;
                     }
+                    intent.putExtra("NAME",mBuildings[getAdapterPosition()]);
                     intent.putExtra("EXTRA", latitudeAndLongitude);
                     mContext.startActivity(intent);
                 }
