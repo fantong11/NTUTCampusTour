@@ -38,6 +38,8 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
                     Toast.makeText(view.getContext(),
                             mBuildings[getAdapterPosition()] +getAdapterPosition(),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(mContext, MapsActivityCurrentPlace.class);
+
+                    //判斷點擊哪個大樓來給經緯度
                     switch (getAdapterPosition()) {
                         case 0:
                             latitudeAndLongitude[0] = 25.043416;
