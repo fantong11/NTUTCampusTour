@@ -22,7 +22,7 @@
             android:value="AIzaSyBVsW_XQidwgbh_4hHksaZO0jCBPzg-f3A" />
 
         <activity
-            android:name="com.example.currentplacedetailsonmap.MapsActivityCurrentPlace"
+            android:name="com.example.currentplacedetailsonmap.MainActivity"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
