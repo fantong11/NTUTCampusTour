@@ -1,5 +1,7 @@
 package com.example.currentplacedetailsonmap;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +15,10 @@ import java.util.List;
 public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapter.ViewHolder> {
 
     private String[] mBuildings;
+    private Context mContext;
 
-    BuildingListAdapter(String[] buildings) {
+    BuildingListAdapter(Context context, String[] buildings) {
+        mContext = context;
         mBuildings = buildings;
     }
 
@@ -32,6 +36,8 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
                 public void onClick(View view) {
                     Toast.makeText(view.getContext(),
                             mBuildings[getAdapterPosition()] +getAdapterPosition(),Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(mContext, MapsActivityCurrentPlace.class);
+                    mContext.startActivity(intent);
                 }
             });
         }

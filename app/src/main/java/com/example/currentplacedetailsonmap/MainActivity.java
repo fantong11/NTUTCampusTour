@@ -13,18 +13,14 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recycler_view;
     private BuildingListAdapter adapter;
-    private ArrayList<String> mData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] buildings = getResources().getStringArray(R.array.building_list);
 
-        // 準備資料，塞50個項目到ArrayList裡
-        for(int i = 0; i < 50; i++) {
-            mData.add("項目"+i);
-        }
+        // 從string resource去get大樓名稱
+        String[] buildings = getResources().getStringArray(R.array.building_list);
 
         // 連結元件
         recycler_view = (RecyclerView) findViewById(R.id.recycler_view);
@@ -34,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         recycler_view.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         // 將資料交給adapter
-        adapter = new BuildingListAdapter(buildings);
+        adapter = new BuildingListAdapter(this, buildings);
         // 設置adapter給recycler_view
         recycler_view.setAdapter(adapter);
     }

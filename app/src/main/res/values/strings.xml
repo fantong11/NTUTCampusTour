@@ -6,11 +6,34 @@
     <string name="option_get_place">Get place</string>
     <string name="pick_place">Choose a place</string>
     <string-array name="building_list">
-        <item>一教</item>
-        <item>二教</item>
-        <item>三教</item>
-        <item>四教</item>
-        <item>五教</item>
-        <item>六教</item>
+        <item>第一教學大樓</item>
+        <item>第二教學大樓</item>
+        <item>第三教學大樓</item>
+        <item>第四教學大樓</item>
+        <item>第五教學大樓</item>
+        <item>第六教學大樓</item>
+        <item>光華館</item>
+        <item>國父百年紀念館</item>
+        <item>土木館</item>
+        <item>材資管</item>
+        <item>設計館</item>
+        <item>宏裕科技研究大樓</item>
+        <item>校友會館</item>
+        <item>化學工程館</item>
+        <item>紅樓</item>
+        <item>共同科館</item>
+        <item>分子科學工程館</item>
+        <item>國際事務處</item>
+        <item>圖書館</item>
+        <item>行政大樓</item>
+        <item>中正紀念館</item>
+        <item>綜合科館</item>
+        <item>學生宿舍1</item>
+        <item>學生宿舍2</item>
+        <item>網球場</item>
+        <item>籃球場</item>
+        <item>排球場</item>
+        <item>運動場</item>
+        <item>億光大樓</item>
     </string-array>
 </resources>
