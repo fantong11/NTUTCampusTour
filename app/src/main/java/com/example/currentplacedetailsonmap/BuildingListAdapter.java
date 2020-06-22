@@ -1,5 +1,6 @@
 package com.example.currentplacedetailsonmap;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,10 +16,10 @@ import java.util.List;
 public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapter.ViewHolder> {
 
     private String[] mBuildings;
-    private Context mContext;
+    private Activity activity;
 
-    BuildingListAdapter(Context context, String[] buildings) {
-        mContext = context;
+    BuildingListAdapter(Activity activity, String[] buildings) {
+        this.activity = activity;
         mBuildings = buildings;
     }
 
@@ -37,7 +38,7 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
                     double[] latitudeAndLongitude = new double[2];
                     Toast.makeText(view.getContext(),
                             mBuildings[getAdapterPosition()] +getAdapterPosition(),Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(mContext, MapsActivityCurrentPlace.class);
+                    Intent intent = new Intent(activity, MapsActivityCurrentPlace.class);
 
                     //判斷點擊哪個大樓來給經緯度
                     switch (getAdapterPosition()) {
@@ -158,9 +159,10 @@ public class BuildingListAdapter extends RecyclerView.Adapter<BuildingListAdapte
                             latitudeAndLongitude[1] = 121.538239;
                             break;
                     }
-                    intent.putExtra("NAME",mBuildings[getAdapterPosition()]);
+                    intent.putExtra("NAME", mBuildings[getAdapterPosition()]);
                     intent.putExtra("EXTRA", latitudeAndLongitude);
-                    mContext.startActivity(intent);
+                    //mContext.startActivity(intent);
+                    new LoadLocationTask(activity, intent).execute();
                 }
             });
         }
